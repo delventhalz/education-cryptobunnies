@@ -1,6 +1,6 @@
 # Part Two: Cryptomoji
 
-Your task for part two is to build a working distributed application on
+Your task for part three is to build a working distributed application on
 [Hyperledger Sawtooth](https://www.hyperledger.org/projects/sawtooth), a
 general-purpose enterprise blockchain. This app will allow users to collect,
 breed, and trade collectible _kaomoji_: strings of characters that look like
@@ -67,7 +67,7 @@ but is worth getting familiar with.
 
 ### Components
 
-This `part-two` directory includes a [docker-compose](docker-compose.yaml) file
+This `part-three` directory includes a [docker-compose](docker-compose.yaml) file
 that contains the instructions for Docker to start up multiple components
 and network them together. This includes both custom components built from your
 source code and some prepackaged Sawtooth components downloaded from
@@ -91,7 +91,7 @@ directory as the `docker-compose.yaml` file, the `up` command will find the file
 by default, so you won't need to provide any other parameters:
 
 ```bash
-cd code/part-two/
+cd code/part-three/
 docker-compose up
 ```
 
@@ -225,22 +225,22 @@ For the broad transaction family design, continue reading [below](#the-design).
 
 ### Client
 
-**Directory:** [code/part-two/client/](client/)
+**Directory:** [code/part-three/client/](client/)
 
-**README:** [code/part-two/client/README.md](client/README.md)
+**README:** [code/part-three/client/README.md](client/README.md)
 
-**Tests:** [code/part-two/client/tests/](client/tests/)
+**Tests:** [code/part-three/client/tests/](client/tests/)
 
 A React/Webpack UI which allows users to create collections of cryptomoji,
 breed them, and (in the extra credit) trade with other users.
 
 ### Transaction Processor
 
-**Directory:** [code/part-two/processor/](processor/)
+**Directory:** [code/part-three/processor/](processor/)
 
-**README:** [code/part-two/processor/README.md](processor/README.md)
+**README:** [code/part-three/processor/README.md](processor/README.md)
 
-**Tests:** [code/part-two/processor/tests/](processor/tests/)
+**Tests:** [code/part-three/processor/tests/](processor/tests/)
 
 A Node.js process which validates payloads sent from the client, writing data
 permanently to the blockchain.

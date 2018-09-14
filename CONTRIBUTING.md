@@ -179,8 +179,8 @@ the file tags, and they _must_ appear on the first line of the file.
 
 **Examples:**
 
-- [Creating a stub function](https://github.com/hyperledger/education-cryptomoji/blob/master/code/part-two/processor/services/encoding.js#L43)
-- [Marking a solution-only file](https://github.com/hyperledger/education-cryptomoji/blob/master/code/part-two/processor/actions/create_collection.js#L1)
+- [Creating a stub function](https://github.com/hyperledger/education-cryptomoji/blob/master/code/part-three/processor/services/encoding.js#L43)
+- [Marking a solution-only file](https://github.com/hyperledger/education-cryptomoji/blob/master/code/part-three/processor/actions/create_collection.js#L1)
 
 ### Publishing Updates to `master` and `solution`
 

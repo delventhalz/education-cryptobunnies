@@ -30,7 +30,7 @@ As with the other components, npm is used to manage dependencies and extensive
 Mocha/Chai unit tests are provided to guide your efforts. To begin simply run:
 
 ```bash
-cd code/part-two/processor/
+cd code/part-three/processor/
 npm install
 npm test
 ```
@@ -41,7 +41,7 @@ are for the extra credit). Most of those that are _not_ being skipped are
 simple (or as complex) as getting these tests to pass.
 
 In order to start up the full processor, run `docker-compose up` as detailed in
-the [Using Docker](../README.md#using-docker) section of the part-two README.
+the [Using Docker](../README.md#using-docker) section of the part-three README.
 
 ## The Curriculum
 
@@ -196,8 +196,8 @@ wanted to go further and explore concepts like multi-party agreements and
 deleting state, there are a full suite of additional tests based around trading
 cryptomoji between collections. In order to run them you must remove the
 `.skip` from the wrapping describe block in each of the "ExtraCredit" tests in
-the [tests/](tests/) directory. Use these tests and the specs from the part-two
-README to guide your implementation:
+the [tests/](tests/) directory. Use these tests and the specs from the
+part-three README to guide your implementation:
 
 - [Create Offer](../README.md#create-offer)
 - [Cancel Offer](../README.md#cancel-offer)

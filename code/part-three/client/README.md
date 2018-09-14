@@ -30,7 +30,7 @@ This component uses npm to manage dependencies, so the first thing you should
 do is install them:
 
 ```bash
-cd code/part-two/client/
+cd code/part-three/client/
 npm install
 ```
 

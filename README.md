@@ -18,7 +18,8 @@ Created in collaboration with [Hack Reactor](https://www.hackreactor.com).
 - [Prerequisites](#prerequisites)
 - [Sections](#sections)
     * [Part One: DIY Blockchain](#part-one-diy-blockchain)
-    * [Part Two: Sawtooth Cryptomoji](#part-two-sawtooth-cryptomoji)
+    * [Part Two: Sawtooth Intro](#part-two-sawtooth-intro)
+    * [Part Three: Cryptomoji](#part-three-cryptomoji)
 - [Solution Code](#solution-code)
 - [Contributing](#contributing)
 - [License](#license)
@@ -32,7 +33,7 @@ This project requires [Node 8](https://nodejs.org/) and
 
 ## Sections
 
-This curriculum is broken into two parts. Although they build on one another,
+This curriculum is broken into three parts. Although they build on one another,
 if you are already familiar with blockchain basics, you can probably skip part
 one. For detailed instructions for each part, head to their individual
 READMEs.
@@ -56,9 +57,13 @@ signing, consensus algorithms, and the blockchain data structure itself.
 ＼(〇_ｏ)／
 
 
-### Part Two: Sawtooth Cryptomoji
+### Part Two: Sawtooth Intro
 
-**README:** [code/part-two/README.md](code/part-two/README.md)
+TBA
+
+### Part Three: Cryptomoji
+
+**README:** [code/part-three/README.md](code/part-three/README.md)
 
 **Duration:** 20-40 hours
 
@@ -71,7 +76,7 @@ signing, consensus algorithms, and the blockchain data structure itself.
     - Reading and writing state
     - Validating payloads
 
-Part two is the actual Cryptomoji app. It should give you a detailed
+Part three is the actual Cryptomoji app. It should give you a detailed
 understanding of how to build both clients and "transaction processors" on
 Hyperledger Sawtooth. When you're done, you will have a working full-stack
 application ready to be deployed on a Sawtooth blockchain.
