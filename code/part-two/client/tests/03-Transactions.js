@@ -18,14 +18,17 @@ describe('Transactions module', function() {
 
   describe('createTransaction', function() {
     const payload = { hello: 'world' };
-    let keys = null;
+    let privateKey = null;
+    let publicKey = null;
 
     beforeEach(function() {
-      keys = createKeys();
+      const keys = createKeys();
+      privateKey = keys.privateKey;
+      publicKey = keys.publicKey;
     });
 
     it('should return a valid Transaction message', function() {
-      const transaction = transactions.createTransaction(keys.privateKey, payload);
+      const transaction = transactions.createTransaction(privateKey, payload);
 
       expect(transaction).to.be.instanceOf(Message);
       // Transaction.verify returns an error message if it fails
@@ -33,7 +36,7 @@ describe('Transactions module', function() {
     });
 
     it('should return a Transaction with the correct properties', function() {
-      const transaction = transactions.createTransaction(keys.privateKey, payload);
+      const transaction = transactions.createTransaction(privateKey, payload);
 
       expect(transaction.header)
         .to.be.set
@@ -47,7 +50,7 @@ describe('Transactions module', function() {
     });
 
     it('should include TransactionHeader with correct properties', function() {
-      const transaction = transactions.createTransaction(keys.privateKey, payload);
+      const transaction = transactions.createTransaction(privateKey, payload);
 
       expect(() => TransactionHeader.decode(transaction.header)).to.not.throw();
       const header = TransactionHeader.decode(transaction.header);
@@ -55,11 +58,11 @@ describe('Transactions module', function() {
       expect(header.signerPublicKey)
         .to.be.set
         .and.be.a.hexString
-        .and.equal(keys.publicKey);
+        .and.equal(publicKey);
       expect(header.batcherPublicKey)
         .to.be.set
         .and.be.a.hexString
-        .and.equal(keys.publicKey);
+        .and.equal(publicKey);
       expect(header.familyName)
         .to.be.set
         .and.be.a('string')
@@ -83,7 +86,7 @@ describe('Transactions module', function() {
       });
 
       const repeatNonce = TransactionHeader.decode(
-        transactions.createTransaction(keys.privateKey, payload).header
+        transactions.createTransaction(privateKey, payload).header
       ).nonce;
       const payloadHash = createHash('sha512')
         .update(encode(payload))
@@ -98,9 +101,9 @@ describe('Transactions module', function() {
     });
 
     it('should include a valid signature of the header', function() {
-      const transaction = transactions.createTransaction(keys.privateKey, payload);
+      const transaction = transactions.createTransaction(privateKey, payload);
 
-      const publicKeyBytes = Buffer.from(keys.publicKey, 'hex');
+      const publicKeyBytes = Buffer.from(publicKey, 'hex');
       const signatureBytes = Buffer.from(transaction.headerSignature, 'hex');
       const headerHash = createHash('sha256')
         .update(transaction.header)
@@ -115,7 +118,7 @@ describe('Transactions module', function() {
     });
 
     it('should include a decodeable payload', function() {
-      const transaction = transactions.createTransaction(keys.privateKey, payload);
+      const transaction = transactions.createTransaction(privateKey, payload);
 
       expect(() => decode(transaction.payload)).to.not.throw();
       const decoded = decode(transaction.payload);
@@ -125,17 +128,21 @@ describe('Transactions module', function() {
   });
 
   describe('createBatch', function() {
-    let keys = null;
+    let privateKey = null;
+    let publicKey = null;
     let transaction = null;
 
     beforeEach(function() {
-      keys = createKeys();
+      const keys = createKeys();
+      privateKey = keys.privateKey;
+      publicKey = keys.publicKey;
+
       const payload = { hello: 'world' };
-      transaction = transactions.createTransaction(keys.privateKey, payload);
+      transaction = transactions.createTransaction(privateKey, payload);
     });
 
     it('should return a valid Batch message', function() {
-      const batch = transactions.createBatch(keys.privateKey, transaction);
+      const batch = transactions.createBatch(privateKey, transaction);
 
       expect(batch).to.be.instanceOf(Message);
       // Batch.verify returns an error message if it fails
@@ -143,7 +150,7 @@ describe('Transactions module', function() {
     });
 
     it('should return a Batch with the correct properties', function() {
-      const batch = transactions.createBatch(keys.privateKey, transaction);
+      const batch = transactions.createBatch(privateKey, transaction);
 
       expect(batch.header)
         .to.be.set
@@ -157,7 +164,7 @@ describe('Transactions module', function() {
     });
 
     it('should include a BatchHeader with the correct properties', function() {
-      const batch = transactions.createBatch(keys.privateKey, transaction);
+      const batch = transactions.createBatch(privateKey, transaction);
 
       expect(() => BatchHeader.decode(batch.header)).to.not.throw();
       const header = BatchHeader.decode(batch.header);
@@ -165,7 +172,7 @@ describe('Transactions module', function() {
       expect(header.signerPublicKey)
         .to.be.set
         .and.be.a.hexString
-        .and.equal(keys.publicKey);
+        .and.equal(publicKey);
       expect(header.transactionIds)
         .to.be.set
         .and.be.an('array')
@@ -173,9 +180,9 @@ describe('Transactions module', function() {
     });
 
     it('should include a valid signature of the header', function() {
-      const batch = transactions.createBatch(keys.privateKey, transaction);
+      const batch = transactions.createBatch(privateKey, transaction);
 
-      const publicKeyBytes = Buffer.from(keys.publicKey, 'hex');
+      const publicKeyBytes = Buffer.from(publicKey, 'hex');
       const signatureBytes = Buffer.from(batch.headerSignature, 'hex');
       const headerHash = createHash('sha256').update(batch.header).digest();
       const isValid = secp256k1.verify(
@@ -188,16 +195,16 @@ describe('Transactions module', function() {
     });
 
     it('should include the passed Transaction', function() {
-      const batch = transactions.createBatch(keys.privateKey, transaction);
+      const batch = transactions.createBatch(privateKey, transaction);
       expect(batch.transactions).to.deep.equal([transaction]);
     });
 
     it('should create a Batch with multiple transactions', function() {
       const transactionArray = [
         transaction,
-        transactions.createTransaction(keys.privateKey, { foo: 'bar' })
+        transactions.createTransaction(privateKey, { foo: 'bar' })
       ];
-      const batch = transactions.createBatch(keys.privateKey, transactionArray);
+      const batch = transactions.createBatch(privateKey, transactionArray);
       const header = BatchHeader.decode(batch.header);
 
       expect(batch.transactions)
@@ -234,21 +241,24 @@ describe('Transactions module', function() {
   });
 
   describe('encodeAll', function() {
-    let keys = null;
+    let privateKey = null;
+    let publicKey = null;
     let payload = null;
 
     beforeEach(function() {
-      keys = createKeys();
+      const keys = createKeys();
+      privateKey = keys.privateKey;
+      publicKey = keys.publicKey;
       payload = { hello: 'world' };
     });
 
     it('should return a Buffer or Uint8Array', function() {
-      const encoded = transactions.encodeAll(keys.privateKey, payload);
+      const encoded = transactions.encodeAll(privateKey, payload);
       expect(encoded).to.be.bytes;
     });
 
     it('should be decodeable into the original payload', function() {
-      const encoded = transactions.encodeAll(keys.privateKey, payload);
+      const encoded = transactions.encodeAll(privateKey, payload);
 
       expect(() => BatchList.decode(encoded)).to.not.throw();
       const decodedList = BatchList.decode(encoded);
@@ -262,7 +272,7 @@ describe('Transactions module', function() {
 
     it('should encode multiple payloads', function() {
       const payloads = [ payload, { foo: 'bar' } ];
-      const encoded = transactions.encodeAll(keys.privateKey, payloads);
+      const encoded = transactions.encodeAll(privateKey, payloads);
 
       const decodedPayloads = BatchList
         .decode(encoded)
