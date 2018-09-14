@@ -172,14 +172,14 @@ In addition to reviewing the official Sawtooth documentation, watch the
 Cryptomoji video lecture, which covers all the basics of Sawtooth application
 development in detail. It is broken into five parts, the first of which is a
 overview of blockchains generally, which you may have already watched in part
-one. Each part is available as an MP4 file:
+one. Each part is hosted by HackReactor on their YouTube channel:
 
-- [01a Blockchain Overview Lecture (MP4)](../../teaching/videos/01a_blockchain_lecture.mp4)
-- [01b Blockchain Overview Questions (MP4)](../../teaching/videos/01b_blockchain_qa.mp4)
-- [02 Sawtooth Overview (MP4)](../../teaching/videos/02_sawtooth_overview.mp4)
-- [03 Writing Transaction Processors (MP4)](../../teaching/videos/03_transaction_processors.mp4)
-- [04 Writing Clients (MP4)](../../teaching/videos/04_writing_clients.mp4)
-- [05 Sprint Design (MP4)](../../teaching/videos/05_sprint_design.mp4)
+- [01a Blockchain Overview Lecture](https://youtu.be/YWa1lmFgsOA)
+- [01b Blockchain Overview Questions](https://youtu.be/npGK4i6g41I)
+- [02 Sawtooth Overview](https://youtu.be/f5Wxp_p3Ab4)
+- [03 Writing Transaction Processors](https://youtu.be/WlsLsajAXcc)
+- [04 Writing Clients](https://youtu.be/olgg9TNqH-I)
+- [05 Sprint Design](https://youtu.be/D3uftPkTzhc)
 
 The slides are also available in a variety of formats:
 

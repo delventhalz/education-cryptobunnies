@@ -49,10 +49,10 @@ clues to what you should do next.
 The first part of the Cryptomoji lecture is a brief overview of the blockchain
 data structure and the technologies that power it: hashing, signatures, and
 consensus. The lecture itself is 15 minutes long with an additional 10 minutes
-of Q&A. They are included in this repo as two MP4 files:
+of Q&A. They are hosted by HackReactor on their YouTube channel:
 
-- [Blockchain Overview Lecture (MP4)](../../teaching/videos/01a_blockchain_lecture.mp4)
-- [Blockchain Overview Questions (MP4)](../../teaching/videos/01b_blockchain_qa.mp4)
+- [Blockchain Overview Lecture](https://youtu.be/YWa1lmFgsOA)
+- [Blockchain Overview Questions](https://youtu.be/npGK4i6g41I)
 
 In addition to the video, the slides are available in a variety of formats. The
 general blockchain section is the first 8 slides:
