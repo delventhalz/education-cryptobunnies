@@ -82,6 +82,7 @@ start working with Hyperledger Sawtooth.
 #### Additional Learning
 
  - [Bitcoin: Cryptographic hash functions (video)](https://www.khanacademy.org/economics-finance-domain/core-finance/money-and-banking/bitcoin/v/bitcoin-cryptographic-hash-function)
+ - [Virginia Tech: Hashing Tutorial](http://research.cs.vt.edu/AVresearch/hashing/)
 
 #### Useful JS APIs
 
@@ -160,9 +161,11 @@ public key -
 #### Additional Learning
 
 - [Bitcoin: Digital signatures (video)](https://www.khanacademy.org/economics-finance-domain/core-finance/money-and-banking/bitcoin/v/bitcoin-digital-signatures)
+- [TutorialsPoint: Cryptography Digital Signatures](https://www.tutorialspoint.com/cryptography/cryptography_digital_signatures.htm)
 
 #### Useful JS APIs
 
 - [secp256k1-node](https://github.com/cryptocoinjs/secp256k1-node#usage)
 - [Buffer.from](https://nodejs.org/api/buffer.html#buffer_class_method_buffer_from_string_encoding)
 - [Buffer.toString](https://nodejs.org/api/buffer.html#buffer_buf_tostring_encoding_start_end)
+- [crypto.createHash](https://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm_options)
